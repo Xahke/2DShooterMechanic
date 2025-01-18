@@ -4,11 +4,13 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float lifetime = 2f; // Mermi ömrü
+    [SerializeField] private float lifetime = 2f;
+    public Vector2 direction; // Mermi yönünü tutacak
 
     void Start()
     {
-        Destroy(gameObject, lifetime); // Belirli süre sonra mermiyi yok et
+        direction = transform.right; // Merminin baktığı yön
+        Destroy(gameObject, lifetime);
     }
 
     void Update()
